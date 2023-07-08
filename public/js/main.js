@@ -19,9 +19,11 @@ const getInfo = async(event)=>{
         const response = await fetch(url);
         const data = await response.json();
         const arrData = [data];
+        const tempdata = arrData[0].main.temp;
+        const degree = tempdata- 273.15;
 
         city_name.innerText =`${arrData[0].name },${arrData[0].sys.country}`;
-        temp_real_val.innerText = arrData[0].main.temp;
+        temp_real_val.innerText = degree;
             const tempMood = arrData[0].weather[0].main;
 
         //condition to check sunnuy or cloudy
